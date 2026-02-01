@@ -61,45 +61,67 @@ p {
 /*HEADER Y NAVEGACIÓN*/
 
 header {
-    header {
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
-    transform: translateY(0);
-    transition: transform 0.3s ease-in-out;
-    will-change: transform;
-}
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
 }
 header nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-header nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem 0;
-}
-header nav ul li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: #555;
-    font-weight: 500;
-    border-radius: 4px;
-    transition: background-color 0.2s, color 0.2s;
-}
-header nav ul li a:hover {
-    background-color: #f0f0f0;
-    color: #000;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
 }
 
+header nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+header nav ul li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #555;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+header nav ul li a:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+/* Clase para ocultar el header al hacer scroll hacia abajo */
+header.header-hidden {
+  transform: translateY(-100%);
+}
+
+/* Clase para mostrar el header al hacer scroll hacia arriba */
+header.header-visible {
+  transform: translateY(0);
+}
+
+/* Espacio compensatorio para que el contenido no salte cuando el header es fixed */
+body {
+  padding-top: 0;
+}
+
+body.header-compensated {
+  padding-top: var(--header-height, 0);
+}
 
 /*SECCIÓN INICIO*/
 #inicio {
@@ -368,71 +390,6 @@ footer nav ul li a:hover {
 
 /*RESPONSIVE BÁSICO*/
 /* ===== BASE MÓVIL (por defecto) ===== */
-
-/* Header móvil optimizado con comportamiento de scroll */
-header {
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transform: translateY(0);
-    transition: transform 0.3s ease-in-out;
-    will-change: transform;
-}
-
-/* Clase para ocultar el header al hacer scroll hacia abajo */
-header.header-hidden {
-    transform: translateY(-100%);
-}
-
-/* Clase para mostrar el header al hacer scroll hacia arriba */
-header.header-visible {
-    transform: translateY(0);
-}
-
-/* Espacio compensatorio para que el contenido no salte cuando el header es fixed */
-body {
-    padding-top: 0;
-}
-
-/* Ajuste dinámico del padding-top del body según el tamaño del header */
-body.header-compensated {
-    padding-top: var(--header-height, 0);
-}
-
-header nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.75rem 1rem;
-}
-
-header nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-header nav ul li a {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: #555;
-    font-weight: 500;
-    border-radius: 4px;
-    border: 1px solid #e0e0e0;
-    background-color: #f9f9f9;
-    text-align: center;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-header nav ul li a:hover {
-    background-color: #333;
-    color: #fff;
-    border-color: #333;
-}
 
 /* Ajustes generales para móvil */
 #inicio {
